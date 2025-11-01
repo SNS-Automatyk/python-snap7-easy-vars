@@ -1,7 +1,9 @@
 # Python Snap7 Easy Vars
-A Python wrapper for the snap7 PLC communication library with easy variable management
+A Python wrapper for the snap7 PLC communication library with easy variable management.
+This library simplifies reading and writing variables to Siemens PLCs using snap7 by allowing users to define data structures that map directly to PLC data blocks.
+It wraps around the [python-snap7](https://pypi.org/project/python-snap7/) library and provides an easy-to-use interface for defining PLC variables, reading from, and writing to the PLC.
 
-## Quick Start
+# Quick Start
 Install the package via pip:
 
 ```bash
