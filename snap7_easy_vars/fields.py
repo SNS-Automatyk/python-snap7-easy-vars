@@ -1,5 +1,6 @@
 import struct
 
+
 class PLCField:
     """
     Base descriptor representing a single PLC variable.

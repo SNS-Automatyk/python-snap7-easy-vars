@@ -5,6 +5,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class PLCConnection:
     """
     A class to talk with S7 PLC.

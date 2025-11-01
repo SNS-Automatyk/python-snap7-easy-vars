@@ -7,6 +7,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class PLCDataMeta(type):
     """
     Metaclass collecting PLC field descriptors in definition order.
@@ -126,4 +127,3 @@ class PLCData(metaclass=PLCDataMeta):
                 q.put_nowait(self)
             except asyncio.QueueFull:
                 pass
-

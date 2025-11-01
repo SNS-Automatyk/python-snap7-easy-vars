@@ -1,11 +1,11 @@
-
-
 import snap7_easy_vars
+
 
 class MyPLCData(snap7_easy_vars.PLCData):
     temperature = snap7_easy_vars.PLCRealField(0)
     pressure = snap7_easy_vars.PLCWordField(4)
     status = snap7_easy_vars.PLCBoolField(6, 0, settable=True)
+
 
 def start_fake_plc():
     """
@@ -14,6 +14,7 @@ def start_fake_plc():
     """
     import snap7
     import asyncio
+
     loop = asyncio.get_event_loop()
 
     def loop_in_thread(loop):
@@ -21,6 +22,7 @@ def start_fake_plc():
         loop.run_until_complete(snap7.server.mainloop(102, init_standard_values=True))
 
     import threading
+
     t = threading.Thread(target=loop_in_thread, args=(loop,))
     t.start()
 
@@ -30,10 +32,7 @@ def main():
 
     my_plc_data = MyPLCData()
     my_plc_connection = snap7_easy_vars.PLCConnection(
-        ip_address="127.0.0.1",
-        data_store=my_plc_data,
-        rack=0,
-        slot=1
+        ip_address="127.0.0.1", data_store=my_plc_data, rack=0, slot=1
     )
 
     success = my_plc_connection.connect()
@@ -60,7 +59,9 @@ def main():
 
     # Clean up
     import os
+
     os._exit(0)
+
 
 if __name__ == "__main__":
     main()
